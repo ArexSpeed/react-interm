@@ -1,18 +1,17 @@
 import React from "react";
+import Page from "./Page";
+import Sidebar from "./Sidebar";
 import "./style.css";
-import { ReactQueryConfigProvider } from "react-query";
-import { PokemonPager } from "./Pokemon";
 
-const queryConfig = {
-  suspense: true
-};
+import {ThemeProvider} from './ThemeContext';
+
 
 export default function App() {
   return (
-    <ReactQueryConfigProvider config={queryConfig}>
-      <React.Suspense fallback={"loading..."}>
-        <PokemonPager />
-      </React.Suspense>
-    </ReactQueryConfigProvider>
+    <ThemeProvider>
+      <Page>
+        <Sidebar theme="dark" />
+      </Page>
+    </ThemeProvider>
   );
 }

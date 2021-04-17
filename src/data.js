@@ -1,1 +1,0 @@
-const userName = "Arex Speed";
