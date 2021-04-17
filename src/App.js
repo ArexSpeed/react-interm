@@ -1,18 +1,18 @@
 import React from "react";
-import TodoList from "./containers/TodoList";
-import AddTodo from "./containers/AddTodo";
-import Footer from "./containers/Footer";
-import styled, { ThemeProvider } from "styled-components";
 import "./style.css";
+import { ReactQueryConfigProvider } from "react-query";
+import { PokemonPager } from "./Pokemon";
+
+const queryConfig = {
+  suspense: true
+};
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-      <AddTodo />
-      <TodoList />
-      <Footer />
-    </div>
+    <ReactQueryConfigProvider config={queryConfig}>
+      <React.Suspense fallback={"loading..."}>
+        <PokemonPager />
+      </React.Suspense>
+    </ReactQueryConfigProvider>
   );
 }
